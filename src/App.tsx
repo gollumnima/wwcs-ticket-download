@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import DownloadButton from './components/DownloadButton';
+import Input from './components/Input';
+import Preview from './components/Preview';
+import * as S from './styles';
 
-function App() {
+const App = () => {
+  const [href, setHref] = useState('');
+  const [value, setValue] = useState('');
+  const onCanvasChange = (dataLink:string) => {
+    setHref(dataLink);
+  };
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <S.Container>
+      <Preview onCanvasChange={onCanvasChange} href={href} />
+      <S.Flex>
+        <Input onChange={onChange} value={value} />
+        <DownloadButton href={href} />
+      </S.Flex>
+    </S.Container>
   );
-}
+};
 
 export default App;
