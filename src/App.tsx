@@ -16,10 +16,10 @@ const App = () => {
   };
   return (
     <S.Container>
-      <Preview onCanvasChange={onCanvasChange} href={href} />
+      <Preview onCanvasChange={onCanvasChange} href={href} value={value} />
       <S.Flex>
         <Input onChange={onChange} value={value} />
-        <DownloadButton href={href} />
+        <DownloadButton />
       </S.Flex>
     </S.Container>
   );
