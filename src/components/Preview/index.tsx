@@ -7,11 +7,6 @@ type Props = {
   value: string;
 };
 
-type FontParams = {
-  ref : HTMLCanvasElement;
-  text: string;
-};
-
 const Preview:React.FC<Props> = ({ onCanvasChange, href, value }) => {
   const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 
