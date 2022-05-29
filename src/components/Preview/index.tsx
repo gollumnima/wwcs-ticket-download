@@ -15,7 +15,7 @@ const Preview:React.FC<Props> = ({ onCanvasChange, href, value }) => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return undefined;
     const image = new Image();
-    image.src = '/images/ticket-sample.png';
+    image.src = '/images/ticket.png';
     image.onload = () => {
       ctx?.drawImage(image, 0, 0);
     };
@@ -26,9 +26,9 @@ const Preview:React.FC<Props> = ({ onCanvasChange, href, value }) => {
     if (!ref) return undefined;
     const ctx = ref.getContext('2d');
     if (!ctx) return undefined;
-    ctx.font = '60px Nanum Gothic';
+    ctx.font = '30px Nanum Gothic';
 
-    ctx?.fillText(text, ref.width / 2, ref.height / 2);
+    ctx?.fillText(text, 620, 180);
     return ctx;
   };
 
@@ -54,7 +54,7 @@ const Preview:React.FC<Props> = ({ onCanvasChange, href, value }) => {
   return (
     <S.PreviewWrapper>
       <S.TitleWrapper>위민후코드 상반기결산 티켓 생성</S.TitleWrapper>
-      <canvas id="canvas" width={640} height={337} />
+      <canvas id="canvas" width={855} height={335} />
     </S.PreviewWrapper>
   );
 };
