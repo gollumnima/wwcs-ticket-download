@@ -17,44 +17,9 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/require-default-props': 'off',
     'react/default-props-match-prop-types': 'off',
-    'react/jsx-props-no-spreading': ['warn'],
-    'linebreak-style': [
-      'error',
-      process.platform === 'win32' ? 'windows' : 'unix',
-    ],
-    'no-console': ['warn'],
+    'react/jsx-props-no-spreading': 'warn',
+    "react-hooks/exhaustive-deps": 'warn' ,
+    'no-console': 'warn',
     'react/jsx-no-useless-fragment': 'warn',
-    'no-param-reassign': [
-      'error',
-      {
-        props: true,
-        ignorePropertyModificationsFor: ['state'],
-      },
-    ],
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['to'],
-      },
-    ],
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        'devDependencies': [
-          '**/*.stories.*',
-          '**/.storybook/**/*.*'
-        ],
-        'peerDependencies': true
-      }
-    ],
   },
-  overrides: [
-    {
-      "files": ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-      "rules": {
-        'storybook/default-exports': 'off',
-      }
-    }
-  ]
 };
