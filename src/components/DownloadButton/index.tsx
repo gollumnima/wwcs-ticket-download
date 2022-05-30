@@ -13,7 +13,7 @@ const DownloadButton:React.FC = () => {
   };
   return (
     <S.Button type="button" onClick={onDownloadImage}>
-      티켓 저장
+      이미지로 저장하기
     </S.Button>
   );
 };

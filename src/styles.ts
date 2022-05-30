@@ -9,3 +9,7 @@ export const Flex = styled.div`
   display: flex;
   gap: 20px;
 `;
+
+export const Spacing = styled.div`
+  margin-bottom: 10px;
+`;
