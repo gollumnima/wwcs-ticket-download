@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DownloadButton from './components/DownloadButton';
 import Input from './components/Input';
 import MakeButton from './components/MakeButton';
@@ -6,12 +6,8 @@ import Preview from './components/Preview';
 import * as S from './styles';
 
 const App = () => {
-  const [href, setHref] = useState('');
   const [value, setValue] = useState('');
   const [fixedValue, setFixedValue] = useState('');
-  const onCanvasChange = (dataLink:string) => {
-    setHref(dataLink);
-  };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -19,7 +15,7 @@ const App = () => {
 
   const saveText = (text: string) => {
     setFixedValue(text);
-    onCanvasChange(text);
+    // onCanvasChange(text);
   };
 
   return (

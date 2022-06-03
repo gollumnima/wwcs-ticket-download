@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import * as S from './styles';
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Preview:React.FC<Props> = () => {
-  const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const onImageDraw = (ref:HTMLCanvasElement) => {
     const ctx = ref.getContext('2d');
@@ -20,24 +20,16 @@ const Preview:React.FC<Props> = () => {
   };
 
   useEffect(() => {
+    const canvas = canvasRef.current;
     if (!canvas) return undefined;
     onImageDraw(canvas);
-    console.log('on image draw');
     return undefined;
-  }, [canvas]);
-
-  // useEffect(() => {
-  //   if (!canvas) return undefined;
-  //   const url = canvas.toDataURL();
-  //   if (href === url) return undefined;
-  //   onCanvasChange(href);
-  //   return undefined;
-  // }, [canvas, href]);
+  }, [canvasRef]);
 
   return (
     <S.PreviewWrapper>
       <S.TitleWrapper>Women Who Code Seoul 상반기결산 입장권</S.TitleWrapper>
-      <canvas id="canvas" width={855} height={335} />
+      <canvas ref={canvasRef} id="canvas" width={855} height={335} />
     </S.PreviewWrapper>
   );
 };
