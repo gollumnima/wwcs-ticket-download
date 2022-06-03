@@ -16,7 +16,7 @@ const DownloadButton:React.FC<Props> = ({ canvasRef }) => {
   };
   return (
     <S.Button type="button" onClick={onDownloadImage}>
-      이미지로 저장하기
+      저장하기
     </S.Button>
   );
 };

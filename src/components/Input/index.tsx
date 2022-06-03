@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Input:React.FC<Props> = ({ onChange, value }) => (
-  <S.InputWrapper onChange={onChange} value={value} placeholder="이름을 입력해주세요" />
+  <S.InputWrapper onChange={onChange} value={value} placeholder="이름을 입력해주세요!" />
 );
 
 export default Input;

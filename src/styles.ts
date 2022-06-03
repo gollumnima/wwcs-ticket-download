@@ -2,14 +2,20 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 20px 20px;
-
+  text-align: center;
 `;
 
 export const Flex = styled.div`
   display: flex;
   gap: 20px;
+  justify-content: center;
 `;
 
 export const Spacing = styled.div`
-  margin-bottom: 10px;
+  padding-bottom: 20px;
+`;
+
+export const Typography = styled.p`
+  font-family: 'Gugi', cursive;
+  font-size: 18px;
 `;
