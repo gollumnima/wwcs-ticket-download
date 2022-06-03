@@ -1,8 +1,11 @@
 import * as S from './styles';
 
-const DownloadButton:React.FC = () => {
+type Props = {
+  canvasRef: React.RefObject<HTMLCanvasElement>;
+};
+const DownloadButton:React.FC<Props> = ({ canvasRef }) => {
   const onDownloadImage = () => {
-    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    const canvas = canvasRef.current;
     if (!canvas) return undefined;
     const url = canvas.toDataURL('image/png');
     const link = document.createElement('a');

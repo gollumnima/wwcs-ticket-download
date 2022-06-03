@@ -1,26 +1,46 @@
 import React, { useRef, useState } from 'react';
 import DownloadButton from './components/DownloadButton';
 import Input from './components/Input';
-import MakeButton from './components/MakeButton';
 import Preview from './components/Preview';
 import * as S from './styles';
 
 const App = () => {
+  const canvasRef: React.RefObject<HTMLCanvasElement> = useRef(null);
   const [value, setValue] = useState('');
-  const [fixedValue, setFixedValue] = useState('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  const saveText = (text: string) => {
-    setFixedValue(text);
-    // onCanvasChange(text);
+  const setFont = (ref: HTMLCanvasElement, text: string) => {
+    const ctx = ref.getContext('2d');
+    if (!ctx) return undefined;
+    ctx.font = '30px Nanum Gothic';
+    ctx?.fillText(text, 620, 190);
+    return ctx;
+  };
+
+  const onImageDraw = (ref:React.RefObject<HTMLCanvasElement>, text:string) => {
+    const canvas = ref.current;
+    if (!canvas) return undefined;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return undefined;
+    const image = new Image();
+    image.src = '/images/ticket.png';
+    image.onload = () => {
+      ctx.drawImage(image, 0, 0);
+      setFont(canvas, text);
+    };
+    return image;
   };
 
   return (
     <S.Container>
-      <Preview />
+      <Preview
+        canvasRef={canvasRef}
+        onImageDraw={() => onImageDraw(canvasRef, value)}
+        value={value}
+      />
       <p>위민후 코드와 함께 하는 상반기결산 입장권 만들기</p>
       <p>아래의 입력칸에 이름을 입력해주세요</p>
       <p>입장권 만들기 버튼을 클릭해 입장권에 이름을 새겨보세요</p>
@@ -29,14 +49,9 @@ const App = () => {
       <S.Spacing />
       <S.Flex>
         <Input onChange={onChange} value={value} />
-        <MakeButton onClick={() => saveText(value)} value={fixedValue} />
-        <DownloadButton />
+        <DownloadButton canvasRef={canvasRef} />
       </S.Flex>
       <S.Spacing />
-      <b style={{ color: 'red' }}>고칠 것들!! 수정 빨리 할게요 ㅠㅠ</b>
-      <p style={{ color: 'red' }}>-이미지 초기 랜더링 안되는 문제</p>
-      <p style={{ color: 'red' }}>-캔버스 텍스트 초기화 하는 방법 찾기</p>
-      <p style={{ color: 'red' }}>-UI를 어떻게 하면 좀 더 예쁘게 할 수 있을까</p>
     </S.Container>
   );
 };

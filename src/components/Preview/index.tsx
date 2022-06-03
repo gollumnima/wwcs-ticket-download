@@ -1,30 +1,19 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import * as S from './styles';
 
 type Props = {
-
+  canvasRef: React.RefObject<HTMLCanvasElement>;
+  onImageDraw: (ref: HTMLCanvasElement) => void;
+  value: string;
 };
 
-const Preview:React.FC<Props> = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const onImageDraw = (ref:HTMLCanvasElement) => {
-    const ctx = ref.getContext('2d');
-    if (!ctx) return undefined;
-    const image = new Image();
-    image.src = '/images/ticket.png';
-    image.onload = () => {
-      ctx.drawImage(image, 0, 0);
-    };
-    return image;
-  };
-
+const Preview:React.FC<Props> = ({ canvasRef, onImageDraw, value }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
     onImageDraw(canvas);
     return undefined;
-  }, [canvasRef]);
+  }, [canvasRef, value]);
 
   return (
     <S.PreviewWrapper>
