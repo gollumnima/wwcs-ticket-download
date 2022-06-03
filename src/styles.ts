@@ -16,6 +16,6 @@ export const Spacing = styled.div`
 `;
 
 export const Typography = styled.p`
-  font-family: 'Gugi', cursive;
-  font-size: 18px;
+font-family: 'Jua', sans-serif;
+font-size: 18px;
 `;

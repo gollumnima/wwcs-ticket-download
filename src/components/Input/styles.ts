@@ -5,4 +5,9 @@ export const InputWrapper = styled.input`
   padding: 10px 5px;
   border-radius: 12px;
   border: 1px solid #bdbdbd;
+
+  ::placeholder {
+    font-family: 'Jua', sans-serif;
+    color: #bdbdbd;
+  }
 `;
