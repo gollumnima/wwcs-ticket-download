@@ -1,6 +1,6 @@
 # 2022 Women Who Code Seoul 상반기 결산 행사 티켓 만들기 페이지
 > 2022 위민 후 코드 서울 상반기 결산 행사를 위해 온라인 티켓을 이미지로 다운로드 받을 수 있는 페이지입니다.
-> TypeScript와 React를 이용해 구현한 페이지 입니다.
+> TypeScript와 React를 이용해 구현했으며, Canvas 태그를 이용해 이미지 위에 글자를 타이핑해 나만의 티켓을 만들고 다운로드할 수 있습니다.
 
 !['wwcs-ticket-image'](https://github.com/gollumnima/wwcs-ticket/blob/main/public/images/wwcs-event-capture.gif) 
 상반기 결산 행사 회고는 위민 후 코드 미디엄 포스트에서 확인하실 수 있습니다.
